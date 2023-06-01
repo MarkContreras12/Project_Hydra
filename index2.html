@@ -7,42 +7,83 @@
     <title>Bootstrap Training</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
-        .mh-50 {
+        
+        .mh-50 { 
             height: 100px;
 
-        }
+       
+        }/* Circle Size */
+       
         .mw-50 {
             width: 100px;
-        }
+       
+        }/* Circle Size */
 
         .mh-500 {
             height: 500px;
 
-        }
+        }/* grid size */
+       
         .mw-500 {
             width: 500px;
-        }
+        
+        }/* grid size */
 
-        .mp-50 {
+        .mb-50 {
             margin-bottom: 15px;
-        }
+        
+        }/* Circle margin bottom */
+        
         </style>
 
 </head>
 <body class="bg-secondary"> <! -- Body BG --> 
+
    <div> <div class="bg-success mt-3 mx-0 py-3 px-3 rounded border border-light"> 
-       <div class="bg-danger rounded-circle mh-50 mw-50 border border-light"></div><! -- Red Circle -->
-   </div> <! -- Header BG Green -->
+            <div class="bg-danger rounded-circle mh-50 mw-50 border border-light"></div> <! -- Red Circle -->
+   
+    </div> <! -- Header BG Green -->
 
    <div class="row">
-    <div class="col bg-success mt-3 mx-3 py-3 px-3 mh-500 mw-500 rounded border border-light position-relative"> <div class="bg-danger rounded-circle mh-50 mw-50 border border-light position-absolute top-50 start-50 translate-middle"></div><! -- Red Circle -->
-      </div> <! -- 1st Row Green -->
+    <div class="col bg-success mt-3 mx-3 py-3 px-3 mh-500 mw-500 rounded border border-light position-relative"> 
+        
+            <div class="bg-danger rounded-circle mh-50 mw-50 border border-light position-absolute top-50 start-50 translate-middle"></div><! -- Red Circle -->
+      
+    </div> <! -- 1st Column Green -->
 
     <div class="col-6 bg-light mt-3 rounded border border-light">
-      </div> <! -- 2nd Row White -->
+      </div> <! -- 2nd Column White -->
 
-    <div class="col bg-success mt-3 mx-3 py-3 px-3 mh-500 mw-500 rounded border border-light position-relative"><div class="bg-warning rounded-circle mh-50 mw-50 mp-50 border border-light position-absolute bottom-0 start-50 translate-middle-x"></div><! -- Yellow Circle -->
-    </div> <! -- 3rd Row Green -->
+    <div class="col bg-success mt-3 mx-3 py-3 px-3 mh-500 mw-500 rounded border border-light position-relative"  id="right-sidebar" >
+            
+            <div class="bg-warning rounded-circle mh-50 mw-50 mb-50 border border-light position-absolute bottom-0 start-50 translate-middle-x"></div><! -- Yellow Circle -->
+        
+            <div class="d-flex flex-column mb-3">
+                
+                <button  
+                         type="button" 
+                         class="btn btn-danger border border-light mt-3"
+                         id="blue-button"
+                         >BLUE
+                </button>
+
+                <button  
+                         type="button" 
+                         class="btn btn-warning border border-light mt-3"
+                         id="green-button"
+                         >GREEN
+                </button>
+
+                <button  
+                         type="button" 
+                         class="btn btn-primary border border-light mt-3"
+                         id="yellow-button"
+                         >YELLOW
+                </button>
+
+            </div>
+
+    </div> <! -- 3rd Column Green -->
   
 </div>
 
@@ -50,5 +91,33 @@
 
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var blueButton = document.getElementById("blue-button");
+            var greenButton = document.getElementById("green-button");
+            var yellowButton = document.getElementById("yellow-button");
+            var rightSidebar = document.getElementById("right-sidebar");
+            var yellowCircle = rightSidebar.querySelector(".bg-warning");
+    
+            blueButton.addEventListener("click", function() {
+                rightSidebar.classList.remove("bg-success", "bg-warning"); // Green and Yellow
+                rightSidebar.classList.add("bg-primary"); // Blue
+            });
+    
+            greenButton.addEventListener("click", function() {
+                rightSidebar.classList.remove("bg-primary", "bg-warning"); // Blue and Yellow
+                rightSidebar.classList.add("bg-success"); // Green
+            });
+    
+            yellowButton.addEventListener("click", function() {
+                rightSidebar.classList.remove("bg-success", "bg-warning"); // Green and Yellow
+                rightSidebar.classList.add("bg-warning"); // Yellow
+            });
+        });
+    </script>
+
+  
 </body>
 </html>
